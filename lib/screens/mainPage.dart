@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import '../data/shared/card_design.dart';
+import 'ask_me.dart';
+import 'contact.dart';
+import 'prayer.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -10,7 +12,6 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  var svg = "assets/images/logo.svg";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,12 +39,25 @@ class _MainPageState extends State<MainPage> {
                     mainAxisExtent: 125, crossAxisCount: 2),
                 itemBuilder: (context, i) {
                   return InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      if(i == 3){
+                         Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => const AskMe()));
+                      }
+                      if (i == 8) {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => const Contact()));
+                      }
+                      if (i == 7) {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => const Prayer()));
+                      }
+                    },
                     child: Column(children: [
                       Icon(
                         cardList[i].icon,
                         size: 65,
-                        color: Color.fromARGB(255, 228, 73, 26),
+                        color: const Color.fromARGB(255, 228, 73, 26),
                       ),
                       Text(
                         cardList[i].text!,
@@ -59,206 +73,3 @@ class _MainPageState extends State<MainPage> {
     );
   }
 }
-
-// Row(
-//   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-//   children: [
-//     InkWell(
-//       onTap: () {},
-//       child: Column(
-//         children: const [
-//           Icon(Icons.location_on,
-//               size: 65, color: Color.fromARGB(255, 228, 73, 26)),
-//           Text(
-//             'موقع الحملة',
-//             style: TextStyle(
-//               fontSize: 19,
-//             ),
-//           ),
-//         ],
-//       ),
-//     ),
-//     InkWell(
-//       onTap: () {},
-//       child: Column(
-//         children: const [
-//           Icon(Icons.apartment,
-//               size: 65, color: Color.fromARGB(255, 228, 73, 26)),
-//           Padding(
-//             padding: EdgeInsets.only(top: 5),
-//             child: Text(
-//               'عن الحملة',
-//               style: TextStyle(
-//                 fontSize: 19,
-//               ),
-//             ),
-//           ),
-//         ],
-//       ),
-//     ),
-//   ],
-// ),
-// const SizedBox(
-//   height: 30,
-// ),
-// Row(
-//   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-//   children: [
-//     InkWell(
-//       onTap: () {},
-//       child: Column(
-//         children: const [
-//           Icon(Icons.timer_outlined,
-//               size: 65, color: Color.fromARGB(255, 228, 73, 26)),
-//           Text(
-//             'عداد الطواف',
-//             style: TextStyle(
-//               fontSize: 19,
-//             ),
-//           ),
-//         ],
-//       ),
-//     ),
-//     InkWell(
-//       onTap: () {},
-//       child: Column(
-//         children: const [
-//           Icon(Icons.contact_support,
-//               size: 65, color: Color.fromARGB(255, 228, 73, 26)),
-//           Padding(
-//             padding: EdgeInsets.only(top: 5),
-//             child: Text(
-//               'اسألني',
-//               style: TextStyle(
-//                 fontSize: 19,
-//               ),
-//             ),
-//           ),
-//         ],
-//       ),
-//     ),
-//   ],
-// ),
-// const SizedBox(
-//   height: 30,
-// ),
-// Row(
-//   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-//   children: [
-//     InkWell(
-//       onTap: () {},
-//       child: Column(
-//         children: const [
-//           Icon(Icons.account_box,
-//               size: 65, color: Color.fromARGB(255, 228, 73, 26)),
-//           Text(
-//             'معلومات عن الحج',
-//             style: TextStyle(
-//               fontSize: 19,
-//             ),
-//           ),
-//         ],
-//       ),
-//     ),
-//     InkWell(
-//       onTap: () {},
-//       child: Column(
-//         children: const [
-//           Icon(Icons.explore,
-//               size: 65, color: Color.fromARGB(255, 228, 73, 26)),
-//           Padding(
-//             padding: EdgeInsets.only(top: 5),
-//             child: Text(
-//               'اتجاه القبلة',
-//               style: TextStyle(
-//                 fontSize: 19,
-//               ),
-//             ),
-//           ),
-//         ],
-//       ),
-//     ),
-//   ],
-// ),
-// const SizedBox(
-//   height: 30,
-// ),
-// Row(
-//   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-//   children: [
-//     InkWell(
-//       onTap: () {},
-//       child: Column(
-//         children: const [
-//           Icon(Icons.book,
-//               size: 65, color: Color.fromARGB(255, 228, 73, 26)),
-//           Text(
-//             ' القرأن الكريم ',
-//             style: TextStyle(
-//               fontSize: 19,
-//             ),
-//           ),
-//         ],
-//       ),
-//     ),
-//     InkWell(
-//       onTap: () {},
-//       child: Column(
-//         children: const [
-//           Icon(Icons.handshake_outlined,
-//               size: 65, color: Color.fromARGB(255, 228, 73, 26)),
-//           Padding(
-//             padding: EdgeInsets.only(top: 5),
-//             child: Text(
-//               'ادعية مختارة ',
-//               style: TextStyle(
-//                 fontSize: 19,
-//               ),
-//             ),
-//           ),
-//         ],
-//       ),
-//     ),
-//   ],
-// ),
-// const SizedBox(
-//   height: 30,
-// ),
-// Row(
-//   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-//   children: [
-//     InkWell(
-//       onTap: () {},
-//       child: Column(
-//         children: const [
-//           Icon(Icons.phone_in_talk,
-//               size: 65, color: Color.fromARGB(255, 228, 73, 26)),
-//           Text(
-//             '  تواصل معنا ',
-//             style: TextStyle(
-//               fontSize: 19,
-//             ),
-//           ),
-//         ],
-//       ),
-//     ),
-//     InkWell(
-//       onTap: () {},
-//       child: Column(
-//         children: const [
-//           Icon(Icons.mosque,
-//               size: 65, color: Color.fromARGB(255, 228, 73, 26)),
-//           Padding(
-//             padding: EdgeInsets.only(top: 5),
-//             child: Text(
-//               ' أوقات الصلاة ',
-//               style: TextStyle(
-//                 fontSize: 19,
-//               ),
-//             ),
-//           ),
-//         ],
-//       ),
-//     ),
-//   ],
-// ),

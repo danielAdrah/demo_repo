@@ -1,3 +1,4 @@
+import 'package:al_tawba/homePage.dart';
 import 'package:flutter/material.dart';
 
 class Personal extends StatefulWidget {
@@ -14,7 +15,10 @@ class _PersonalState extends State<Personal> {
       appBar: AppBar(
         toolbarHeight: 80,
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: ((context) => const HomePage())));
+          },
           icon: const Icon(
             Icons.arrow_back_ios,
             color: Colors.black,
@@ -56,7 +60,12 @@ class _PersonalState extends State<Personal> {
               child: TextField(
                 decoration: InputDecoration(
                   label: const Text("الرقم الشخصي"),
+                  labelStyle:
+                      const TextStyle(color: Color.fromARGB(255, 228, 73, 26)),
                   border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15),
+                      borderSide: const BorderSide()),
+                  focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(15),
                       borderSide: const BorderSide(
                           color: Color.fromARGB(255, 228, 73, 26))),
@@ -68,8 +77,17 @@ class _PersonalState extends State<Personal> {
               child: TextField(
                 decoration: InputDecoration(
                   label: const Text(" رقم الجوال"),
+                  labelStyle:
+                      const TextStyle(color: Color.fromARGB(255, 228, 73, 26)),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15),
+                    borderSide: const BorderSide(
+                        color: Color.fromARGB(255, 228, 73, 26)),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                    borderSide: const BorderSide(
+                        color: Color.fromARGB(255, 228, 73, 26)),
                   ),
                 ),
               ),

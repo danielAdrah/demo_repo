@@ -1,4 +1,7 @@
+import 'package:al_tawba/homePage.dart';
 import 'package:flutter/material.dart';
+
+import 'mainPage.dart';
 
 class Notifications extends StatefulWidget {
   const Notifications({super.key});
@@ -15,9 +18,15 @@ class _NotificationsState extends State<Notifications> {
         toolbarHeight: 80,
         leading: IconButton(
           onPressed: () {},
-          icon: const Icon(
-            Icons.arrow_back_ios,
-            color: Colors.black,
+          icon: IconButton(
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: ((context) => HomePage())));
+            },
+            icon: const Icon(
+              Icons.arrow_back_ios,
+              color: Colors.black,
+            ),
           ),
         ),
         backgroundColor: Colors.grey[200],
