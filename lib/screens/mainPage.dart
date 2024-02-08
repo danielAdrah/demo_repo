@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../data/shared/card_design.dart';
+import '../display.dart';
 import 'ask_me.dart';
 import 'contact.dart';
 import 'prayer.dart';
@@ -40,17 +42,17 @@ class _MainPageState extends State<MainPage> {
                 itemBuilder: (context, i) {
                   return InkWell(
                     onTap: () {
-                      if(i == 3){
-                         Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => const AskMe()));
+                      if (i == 3) {
+                        Get.to(const AskMe());
+                      }
+                      if (i == 0) {
+                        Get.to(const Display());
                       }
                       if (i == 8) {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => const Contact()));
+                        Get.to(const Contact());
                       }
                       if (i == 7) {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => const Prayer()));
+                        Get.to(const Prayer());
                       }
                     },
                     child: Column(children: [

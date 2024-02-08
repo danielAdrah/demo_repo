@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../homePage.dart';
 
@@ -16,8 +17,7 @@ class _AskMeState extends State<AskMe> {
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: ((context) => HomePage())));
+            Get.to(const HomePage());
           },
           icon: const Icon(
             Icons.arrow_back_ios,
@@ -40,7 +40,7 @@ class _AskMeState extends State<AskMe> {
         child: ListView(
           children: [
             const Padding(
-              padding: const EdgeInsets.only(right: 40, top: 10),
+              padding:  EdgeInsets.only(right: 40, top: 10),
               child: Text(
                 "لا تتردد في الأستفسار عن أي فتوى",
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),

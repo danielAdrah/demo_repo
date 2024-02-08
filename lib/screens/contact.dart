@@ -1,5 +1,6 @@
 import 'package:al_tawba/homePage.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class Contact extends StatefulWidget {
   const Contact({super.key});
@@ -15,8 +16,7 @@ class _ContactState extends State<Contact> {
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: ((context) => HomePage())));
+            Get.to(const HomePage());
           },
           icon: const Icon(
             Icons.arrow_back_ios,

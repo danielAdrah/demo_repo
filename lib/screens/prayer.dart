@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../data/shared/specific_prayer_design.dart';
 import '../homePage.dart';
@@ -20,10 +21,7 @@ class _PrayerState extends State<Prayer> {
             onPressed: () {},
             icon: IconButton(
               onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: ((context) => const HomePage())));
+                Get.to(const HomePage());
               },
               icon: const Icon(
                 Icons.arrow_back_ios,

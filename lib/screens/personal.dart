@@ -1,5 +1,6 @@
 import 'package:al_tawba/homePage.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class Personal extends StatefulWidget {
   const Personal({super.key});
@@ -16,8 +17,7 @@ class _PersonalState extends State<Personal> {
         toolbarHeight: 80,
         leading: IconButton(
           onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: ((context) => const HomePage())));
+            Get.to(const HomePage());
           },
           icon: const Icon(
             Icons.arrow_back_ios,

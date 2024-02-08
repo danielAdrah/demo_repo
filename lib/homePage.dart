@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'screens/mainPage.dart';
-import 'screens/notifications.dart';
-import 'screens/personal.dart';
+import 'package:get/get.dart';
+
+import 'data/model/navigation_model.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -11,41 +11,44 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int selectedIndex = 0;
-  List<Widget> pages = [
-    const MainPage(),
-    const Notifications(),
-    const Personal(),
-  ];
-  void onItemTapped(int index) {
-    setState(() {
-      selectedIndex = index;
-    });
-  }
+  
+
+  final NavigationModel navModel = Get.put(NavigationModel());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-          currentIndex: selectedIndex,
-          onTap: onItemTapped,
-          iconSize: 45,
-          selectedItemColor: const Color.fromARGB(255, 228, 73, 26),
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: "",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.notifications_active),
-              label: "",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: "",
-            ),
-          ]),
-      body: pages[selectedIndex],
+      bottomNavigationBar: GetBuilder<NavigationModel>(
+          init: NavigationModel(),
+          builder: (controller) {
+            return BottomNavigationBar(
+                currentIndex: controller.selectedIndex,
+                onTap: (int index) {
+                  controller.onItemTapped(index);
+                },
+                iconSize: 45,
+                selectedItemColor: const Color.fromARGB(255, 228, 73, 26),
+                items: const <BottomNavigationBarItem>[
+                  BottomNavigationBarItem(
+                    icon: Icon(Icons.home),
+                    label: "",
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Icon(Icons.notifications_active),
+                    label: "",
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Icon(Icons.person),
+                    label: "",
+                  ),
+                ]);
+          }),
+      body: GetBuilder<NavigationModel>(
+        init: NavigationModel(), // Initialize the model
+        builder: (controller) => controller.pages[controller.selectedIndex],
+      ),
     );
   }
 }
+
+
